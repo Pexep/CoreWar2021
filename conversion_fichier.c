@@ -3,17 +3,11 @@
 #include <string.h>
 #include "conversion.h"
 
-void ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM){
+void ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM, char* path_fichier1_int, char* path_fichier2_int){
 	long long int instruction_int;
-	char path_fichier1_int[50], path_fichier2_int[50];
 	char instruction_char[20];
 	FILE* fichier_ASM;
 	FILE* fichier_int;
-
-	strcpy(path_fichier1_int,path_fichier1_ASM);
-	strcpy(path_fichier2_int,path_fichier2_ASM);
-	strcat(path_fichier1_int,".int");
-	strcat(path_fichier2_int,".int");
 
 	/*conversion du premier fichier*/
 	fichier_ASM=fopen(path_fichier1_ASM,"r");
