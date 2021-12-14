@@ -9,7 +9,7 @@
 */
 void argument(char *men, long long *mem, long long *val);
 
-int conversion(char instruction[]){
+long long int conversion(char instruction[]){
     	long long int le_code = 0;
 
 	long long i = 0;
@@ -73,7 +73,7 @@ int conversion(char instruction[]){
 	printf ("%016llx\n", le_code);
 	printf("%lld\n", le_code);
 	
-	return 1;
+	return le_code;
 }
 
 void argument(char *arg, long long *mem, long long *val) {
