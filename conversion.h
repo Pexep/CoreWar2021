@@ -1,6 +1,6 @@
 #ifndef CONVERSION_H
 #define CONVERSION_H
 
-int conversion(char instruction[]);
+long long int conversion(char*);
 
 #endif /*CONVERSION_H*/
