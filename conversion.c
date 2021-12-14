@@ -4,12 +4,12 @@
 #include "conversion.h"
 
 /*
-    convertoint :
+    conversion :
     Cette fonction a besoin de 2 paramètres : la taile de la chaine de caractère en entré et la suite d'instruction à analyser
 */
 void argument(char *men, long long *mem, long long *val);
 
-int convertoint(char instruction[]){
+int conversion(char instruction[]){
     	long long int le_code = 0;
 
 	long long i = 0;
