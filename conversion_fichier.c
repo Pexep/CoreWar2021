@@ -1,10 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "conversion.h"
 
 /*ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM){*/
 int main (void) {
-	long int instruction_int;
+	long long int instruction_int;
 	char path_fichier1_ASM[50], path_fichier2_ASM[50];
 	char path_fichier1_int[50], path_fichier2_int[50];
 	char instruction_char[20];
@@ -28,9 +29,9 @@ int main (void) {
 			printf("%s : ",instruction_char);
 
 			/*appel à la conctione de convertion*/
-			/*instruction_int=conversion(strlen(instruction_char),instruction_char);*/
+			instruction_int=conversion(instruction_char);
 
-			fwrite(&instruction_int, sizeof(long int), 1, fichier_int);
+			fwrite(&instruction_int, sizeof(long long int), 1, fichier_int);
 			printf("%d\n",instruction_int);
 		}
 	}
@@ -49,9 +50,9 @@ int main (void) {
 			printf("%s : ",instruction_char);
 
 			/*appel à la conctione de convertion*/
-			/*instruction_int=conversion(strlen(instruction_char),instruction_char);*/
+			instruction_int=conversion(instruction_char);
 
-			fwrite(&instruction_int, sizeof(long int), 1, fichier_int);
+			fwrite(&instruction_int, sizeof(long long int), 1, fichier_int);
 			printf("%d\n",instruction_int);
 		}
 	}
