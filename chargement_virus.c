@@ -16,8 +16,6 @@ void VirusLoader (int pc, long long int memory [], char* path_fichier, int virus
 			if (pc+i <8000){
 				memory[pc+i]=instruction;
 				/*affichage graphique de la case à l'indice pc+i, de couleur selon le numéro du virus*/
-				printf("%lld : ",instruction);
-				printf("%lld\n",memory[pc+i]);
 			}else{
 				memory[pc+i-8000]=instruction;
 				/*affichage graphique de la case à l'indice pc+i-8000, de couleur selon le numéro du virus*/
