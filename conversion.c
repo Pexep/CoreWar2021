@@ -51,7 +51,6 @@ long long int conversion(char instruction[]){
 
 	if (strcmp(mnemo,"DAT") == 0) { i = 0; }
 
-
 	argument(arg1, &mema, &vala);
 	argument(arg2, &memb, &valb);
 
@@ -70,7 +69,6 @@ long long int conversion(char instruction[]){
 	le_code = le_code | vala;
 	le_code = le_code | valb;
 
-	printf("%lld\n", le_code);
 
 	return le_code;
 }

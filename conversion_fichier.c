@@ -16,19 +16,18 @@ void ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM, char* path_fichi
 	while (feof(fichier_ASM)==0) {
 		fgets(instruction_char,20,fichier_ASM);
 		if (feof(fichier_ASM)==0){
-			printf("%s",instruction_char);
 
 			/*appel à la conctione de convertion*/
 			instruction_int=conversion(instruction_char);
 
 			fwrite(&instruction_int, sizeof(long long int), 1, fichier_int);
-			printf("%lld\n",instruction_int);
+
 		}
 	}
 
 	fclose(fichier_ASM);
 	fclose(fichier_int);
-	printf("\n");
+
 
 	/*conversion du deuxième fichier*/
 	fichier_ASM=fopen(path_fichier2_ASM,"r");
@@ -37,13 +36,13 @@ void ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM, char* path_fichi
 	while (feof(fichier_ASM)==0) {
 		fgets(instruction_char,20,fichier_ASM);
 		if (feof(fichier_ASM)==0){
-			printf("%s",instruction_char);
+
 
 			/*appel à la conctione de convertion*/
 			instruction_int=conversion(instruction_char);
 
 			fwrite(&instruction_int, sizeof(long long int), 1, fichier_int);
-			printf("%lld\n",instruction_int);
+
 		}
 	}
 

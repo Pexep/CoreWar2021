@@ -2,15 +2,18 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
+#include <graph.h>
+#include "variables.h"
 #include "chargement_virus.h"
 #include "conversion_fichier.h"
 
 /*int main (int argc, char* argv[]){*/
 int main (void) {
-	int flag, virus, pc1, pc2;
+	int flag, virus, pc1, pc2, i;
 	char path_fichier1_ASM[50], path_fichier2_ASM[50];
 	char path_fichier1_int[50], path_fichier2_int[50];
 	long long int memory[8000];
+	couleur color_black=CouleurParComposante(0,0,0);
 
 	/*Compilation*/
 	/*strcpy(path_fichier1_ASM, argv[1]);
@@ -24,6 +27,19 @@ int main (void) {
 	ConvFile(path_fichier1_ASM,path_fichier1_ASM,path_fichier2_int,path_fichier2_int);
 
 	/*Initialisation graphique, ouverture de la fenêtre et création de la grille*/
+	InitialiserGraphique();
+	CreerFenetre(0,0,L_FENETRE,H_FENETRE);
+	ChoisirCouleurDessin(color_black);
+	for (i=0;i<=CASE_X;i++){
+		DessinerSegment(PLACEMENT_X-1+i*TAILLE_CASE+i,PLACEMENT_Y-1,PLACEMENT_X-1+i*TAILLE_CASE+i,PLACEMENT_Y-1+TAILLE_CASE*CASE_Y+CASE_Y);
+	}
+	for (i=0;i<=CASE_Y;i++){
+		DessinerSegment(PLACEMENT_X-1,PLACEMENT_Y-1+i*TAILLE_CASE+i,PLACEMENT_X-1+TAILLE_CASE*CASE_X+CASE_X,PLACEMENT_Y-1+i*TAILLE_CASE+i);
+	}
+	for (i=0;i<=CASE_SUPP;i++){
+		DessinerSegment(PLACEMENT_X-1+i*TAILLE_CASE+i,TAILLE_CASE*CASE_Y+PLACEMENT_Y+CASE_Y,PLACEMENT_X-1+i*TAILLE_CASE+i,TAILLE_CASE*CASE_Y+PLACEMENT_Y+TAILLE_CASE+CASE_Y);
+	}
+	DessinerSegment(PLACEMENT_X-1,TAILLE_CASE*(1+CASE_Y)+PLACEMENT_Y+CASE_Y,PLACEMENT_X+TAILLE_CASE*CASE_SUPP+CASE_SUPP-1,TAILLE_CASE*(1+CASE_Y)+PLACEMENT_Y+CASE_Y);
 
 	/*Chargement en memoire*/
 	srand(time(NULL));
@@ -35,12 +51,20 @@ int main (void) {
 			if(pc2>=8000){
 				pc2=pc2-8000;
 			}
+		}else{
+			if (pc1+(8000-pc2)<1000){
+				pc1=pc1+1000;
+			}
 		}
 	}else{
 		if ((pc1-pc2)<1000){
 			pc1=pc1+1000;
 			if(pc1>=8000){
 				pc1=pc1-8000;
+			}
+		}else{
+			if (pc2+(8000-pc1)<1000){
+				pc2=pc2+1000;
 			}
 		}
 	}
@@ -57,6 +81,8 @@ int main (void) {
 	/*----Sortie du jeu (une instruction n'est plus bonne)*/
 
 	/*Fermeture du graphique*/
+	Touche();
+	FermerGraphique();
 
 	return EXIT_SUCCESS;
 }
