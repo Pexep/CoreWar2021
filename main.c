@@ -14,6 +14,9 @@ int main (void) {
 	char path_fichier1_int[50], path_fichier2_int[50];
 	long long int memory[8000];
 	couleur color_black=CouleurParComposante(0,0,0);
+	for (i=0;i<8000;i++){
+		memory[i]=0;
+	}
 
 	/*Compilation*/
 	/*strcpy(path_fichier1_ASM, argv[1]);
