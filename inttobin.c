@@ -3,9 +3,9 @@
 #include <math.h>
 #include "inttobin.h"
 
-int convert(long int integer, int* binary){
+int convert(long long int integer, int* binary){
     /* Convertion d'un entier en bianire stocké sur 64 bits */
-    long int rest=integer;
+    long long int rest=integer;
     int i=0, temp;
     for(i=0; i<64; i++){ /* Initialisation du tableau */
         binary[i]=0;
