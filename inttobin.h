@@ -1,1 +1,1 @@
-int convert(long int, int*);
+int convert(long long int, int*);
