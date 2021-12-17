@@ -3,6 +3,7 @@
 #include "variables.h"
 #include "case_graphique.h"
 
+/*Affichage de la case memoire modifiee*/
 void PrintCase (couleur color, int pc) {
 	ChoisirCouleurDessin(color);
 	if (pc < CASE_X*CASE_Y){

@@ -3,6 +3,7 @@
 #include <string.h>
 #include "conversion.h"
 
+/*Compilation*/
 void ConvFile(char* path_fichier1_ASM, char* path_fichier2_ASM, char* path_fichier1_int, char* path_fichier2_int){
 	long long int instruction_int;
 	char instruction_char[20];

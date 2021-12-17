@@ -5,6 +5,7 @@
 #include "chargement_virus.h"
 #include "case_graphique.h"
 
+/*Chargement des instruction sous la forme d'entiers, dans la memoire*/
 void VirusLoader (int pc, long long int memory [], char* path_fichier, int virus) {
 	int i;
 	FILE* fichier;

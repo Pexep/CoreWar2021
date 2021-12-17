@@ -1,4 +1,7 @@
 #ifndef CHECK_H
 #define CHECK_H
-int check(long long int*);
+
+/*Verification de la validite de l'instriction*/
+int check(int*,long long int*,int);
+
 #endif

@@ -1,15 +1,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <graph.h>
+#include <string.h>
 #include "case_graphique.h"
 #include "execution.h"
 
-
+/*Execution d'une instruction*/
 void execute (int tab[], int* pc, int virus, long long int memory[]) {
 	couleur color;
 	int pcA,pcB;
-
-	printf("%d %d %d %d %d : ",tab[0], tab[1], tab[2], tab[3], tab[4]);
 
 	if (virus==1){
 		color = CouleurParComposante(255,0,0);
@@ -24,10 +23,20 @@ void execute (int tab[], int* pc, int virus, long long int memory[]) {
 	/*Mode d'adressage 1 direct ( )*/
 	if (tab[1]==1){
 		pcA=(*pc)+tab[3];
+		if (pcA>=8000){
+			pcA=pcA%8000;
+		}
 	}
 	/*Mode d'adressage 1 indirect (@)*/
 	if (tab[1]==2){
-		pcA=(*pc)+memory[tab[3]+(*pc)];
+		pcA=tab[3]+(*pc);
+		if (pcA>=8000){
+			pcA=pcA%8000;
+		}
+		pcA=(*pc)+memory[pcA];
+		if (pcA>=8000){
+			pcA=pcA%8000;
+		}
 	}
 	/*Mode d'adressage 2 immediat (#)*/
 	if (tab[2]==0){
@@ -36,10 +45,20 @@ void execute (int tab[], int* pc, int virus, long long int memory[]) {
 	/*Mode d'adressage 2 direct ( )*/
 	if (tab[2]==1){
 		pcB=(*pc)+tab[4];
+		if (pcB>=8000){
+			pcB=pcB%8000;
+		}
 	}
 	/*Mode d'adressage 2 indirect (@)*/
 	if (tab[2]==2){
-		pcB=(*pc)+memory[tab[4]+(*pc)];
+		pcB=tab[4]+(*pc);
+		if (pcB>=8000){
+			pcB=pcB%8000;
+		}
+		pcB=(*pc)+memory[pcB];
+		if (pcB>=8000){
+			pcB=pcB%8000;
+		}
 	}
 	/*L'instruction est un MOV*/
 	if (tab[0]==1){
@@ -96,5 +115,8 @@ void execute (int tab[], int* pc, int virus, long long int memory[]) {
 		}else{
 			*pc=(*pc)+2;
 		}
+	}
+	if (*pc>=8000){
+		*pc=(*pc)-8000;
 	}
 }

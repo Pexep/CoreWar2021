@@ -1,6 +1,7 @@
 #ifndef VARIABLES_H
 #define VARIABLES_H
 
+/*Déclaration de quelques variables globales*/
 #define L_FENETRE 1600
 #define H_FENETRE 1000
 #define CASE_X 89

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h> /* Je veux pas me faire chier à faire des commandes artisanal de comparaison de chaine de carractère alors qu'il y a déjà un truc tout fait */
+#include <string.h> 
 #include "conversion.h"
 
 /*
