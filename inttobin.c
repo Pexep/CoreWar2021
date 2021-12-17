@@ -7,7 +7,6 @@ int convert(long long int integer, int* tab){
     int binary[64],j,puis;
     long long int rest=integer;
     int i=0, temp;
-    printf ("%lld : ",integer);
     for(i=0; i<64; i++){ /* Initialisation du tableau */
         binary[i]=0;
     }
