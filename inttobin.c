@@ -7,6 +7,7 @@ int convert(long long int integer, int* tab){
     int binary[64],j,puis;
     long long int rest=integer;
     int i=0, temp;
+    printf ("%lld : ",integer);
     for(i=0; i<64; i++){ /* Initialisation du tableau */
         binary[i]=0;
     }
@@ -14,8 +15,6 @@ int convert(long long int integer, int* tab){
       binary[63-i]=rest%2;
       rest=rest/2;
     }
-    printf("%lld\n",integer);
-    for (i=0;i<64;i++) printf("%d",binary[i]);
 
     tab[0]=binary[0]*8+binary[1]*4+binary[2]*2+binary[3];
     tab[1]=binary[4]*2+binary[5];
@@ -34,7 +33,7 @@ int convert(long long int integer, int* tab){
 		    for (j=0;j<27-i;j++){
 		          puis=puis*2;
 		   }
-		   tab[4]=tab[4]+puis*binary[35+i];
+		   tab[4]=tab[4]+puis*binary[36+i];
 
 	  }
     return EXIT_SUCCESS;
