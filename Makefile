@@ -5,7 +5,7 @@ conversion_fichier.o : conversion.h
 chargement_virus.o : case_graphique.h
 case_graphique.o : case_graphique.h variables.h
 inttobin.o : inttobin.h
-main.o : conversion_fichier.h chargement_virus.h case_graphique.h variables.h
+main.o : conversion_fichier.h chargement_virus.h case_graphique.h inttobin.h variables.h
 
 code.out : conversion.o conversion_fichier.o chargement_virus.o case_graphique.o inttobin.o main.o
 	    gcc -o code.out conversion.o conversion_fichier.o chargement_virus.o case_graphique.o inttobin.o main.o -lgraph -lm

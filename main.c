@@ -3,13 +3,14 @@
 #include <string.h>
 #include <time.h>
 #include <graph.h>
+#include "inttobin.h"
 #include "variables.h"
 #include "chargement_virus.h"
 #include "conversion_fichier.h"
 
 /*int main (int argc, char* argv[]){*/
 int main (void) {
-	int flag, virus, pc1, pc2, i;
+	int flag, virus, pc1, pc2, i, instructions_int[64];
 	char path_fichier1_ASM[50], path_fichier2_ASM[50];
 	char path_fichier1_int[50], path_fichier2_int[50];
 	long long int memory[8000];
